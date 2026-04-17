@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Daily Pulse - Login</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cool-header">
+        <div class="header-content">
+            <div class="logo">DAILY<span>PULSE</span></div>
+        </div>
+    </header>
+
+    <form action="/login" method="POST" id="loginForm">
+        <h2>Welcome Back</h2>
+        
+        <div class="input-group">
+            <input type="email" name="email" placeholder=" " required id="email">
+            <label>Email Address</label>
+            <span class="validation-icon" id="emailValidation"></span>
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="password" placeholder=" " required id="password">
+            <label>Password</label>
+        </div>
+
+        <div class="input-group">
+            <select name="role" required>
+                <option value="customer">Customer</option>
+                <option value="manager">Manager</option>
+                <option value="delivery">Delivery Person</option>
+            </select>
+        </div>
+
+        <button type="submit">Login</button>
+        <a href="/register" class="cool-link">Don't have an account? Register</a>
+    </form>
+
+    <footer class="cool-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <div class="copyright">© 2023 Daily Pulse. Stay Informed.</div>
+        </div>
+    </footer>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const emailValidation = document.getElementById('emailValidation');
+
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        emailInput.addEventListener('input', () => {
+            if (validateEmail(emailInput.value)) {
+                emailValidation.textContent = '✓';
+                emailValidation.style.color = '#2ecc71';
+            } else {
+                emailValidation.textContent = '✕';
+                emailValidation.style.color = '#e74c3c';
+            }
+        });
+    </script>
+</body>
+</html>

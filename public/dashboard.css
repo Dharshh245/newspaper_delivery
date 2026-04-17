@@ -1,0 +1,214 @@
+/* Dashboard-specific styles */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.dashboard-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.newspaper-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.newspaper-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    background: white;
+}
+
+.newspaper-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.subscription-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: white;
+}
+
+.collapsible {
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.collapsible:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+}
+
+.content {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.cancel-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #c0392b;
+}
+
+/* Add to dashboard.css */
+.newspaper-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.newspaper-item img {
+    max-width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.newspaper-item h3 {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.newspaper-item p {
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+}
+
+.newspaper-item button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.user-subscription {
+    margin-bottom: 1rem;
+}
+
+.total-badge {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+}
+
+.delivery-assignment {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.delivery-assignment form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.delivery-assignment select {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.5rem;
+}
+
+/* Add to your style.css */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+    .paused-date {
+        background-color: orange;
+        color: white;
+        padding: 2px 5px;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 2em;
+    color: #007bff;
+}
+
+.customers-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customers-table th, .customers-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.customers-table th {
+    background: #007bff;
+    color: white;
+}
+
+.cancel-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.inactive {
+    background: #6c757d;
+}
