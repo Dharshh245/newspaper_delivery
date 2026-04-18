@@ -1,6 +1,6 @@
 {
   "name": "newspaper-subscription-system",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Newspaper Subscription Management System",
   "main": "server.js",
   "scripts": {
