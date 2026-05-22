@@ -13,6 +13,9 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    env:
+      # Required since GitHub Actions cache API v1 shutdown (April 2025)
+      ACTIONS_CACHE_SERVICE_V2: true
 
     steps:
       - name: Checkout code
@@ -33,5 +36,5 @@ jobs:
           context: .
           push: true
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,version=2
+          cache-to: type=gha,mode=max,version=2
