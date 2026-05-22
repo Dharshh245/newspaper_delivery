@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newspaper-deployment
+  labels:
+    app: newspaper-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: newspaper-app
+  template:
+    metadata:
+      labels:
+        app: newspaper-app
+    spec:
+      containers:
+        - name: newspaper-container
+          image: dharshini24/newspaper-app:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "3000"
+            - name: MONGODB_URI
+              value: mongodb://mongo-service:27017/newspaper
+            - name: SESSION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: newspaper-secrets
+                  key: session-secret
+                  optional: true
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 3

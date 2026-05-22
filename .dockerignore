@@ -1,0 +1,33 @@
+# Never copy host node_modules — Windows/macOS native binaries break bcrypt on Linux (invalid ELF header)
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Git and IDE
+.git
+.gitignore
+.github
+.vscode
+.cursor
+*.md
+
+# Kubernetes manifests (not needed inside the image)
+deployment.yml
+service.yml
+mongo-deployment.yml
+mongo-service.yml
+
+# Local env and secrets
+.env
+.env.*
+*.pem
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml

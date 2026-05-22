@@ -5,8 +5,11 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const app = express();
 
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/newspaper';
+const PORT = Number(process.env.PORT) || 3000;
+
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/newspaper');
+mongoose.connect(MONGODB_URI);
 
 // Define Schemas
 const UserSchema = new mongoose.Schema({
@@ -73,7 +76,7 @@ app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/newspaper' }),
+    store: MongoStore.create({ mongoUrl: MONGODB_URI }),
     cookie: {
         maxAge: 1000 * 60 * 60 * 24, // 1 day
         secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
@@ -2234,4 +2237,4 @@ app.post('/renew-subscription', requireAuth, requireRole('customer'), async (req
     }
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
